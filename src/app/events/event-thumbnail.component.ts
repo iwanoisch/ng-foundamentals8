@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {IEvent} from './shared';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -9,7 +10,7 @@ export class EventThumbnailComponent {
   // Due modi di passatre informazioni input output e template variables
 
   // input
-  @Input() event: any;
+  @Input() event: IEvent;
 
 
  // template variables

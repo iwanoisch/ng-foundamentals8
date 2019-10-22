@@ -1,8 +1,10 @@
-export const EVENTS = [
+import {IEvent} from './shared';
+
+export const EVENTS: IEvent[] = [
   {
     id: 1,
     name: 'Angular Connect',
-    date: '9/26/2036',
+    date: new Date('9/26/2036'),
     time: '10:00 am',
     price: 599.99,
     imageUrl: '/assets/images/angularconnect-shield.png',
@@ -18,9 +20,9 @@ export const EVENTS = [
         presenter: 'Peter Bacon Darwin',
         duration: 1,
         level: "Intermediate",
-        abstract: `Learn all about the new pipes in Angular 4, both 
-          how to write them, and how to get the new AI CLI to write 
-          them for you. Given by the famous PBD, president of Angular 
+        abstract: `Learn all about the new pipes in Angular 4, both
+          how to write them, and how to get the new AI CLI to write
+          them for you. Given by the famous PBD, president of Angular
           University (formerly Oxford University)`,
         voters: ['bradgreen', 'igorminar', 'martinfowler']
       },
@@ -30,9 +32,9 @@ export const EVENTS = [
         presenter: "Jeff Cross",
         duration: 1,
         level: "Intermediate",
-        abstract: `We all know that our dev teams work hard, but with 
-          the right management they can be even more productive, without 
-          overworking them. In this session I'll show you how to get the 
+        abstract: `We all know that our dev teams work hard, but with
+          the right management they can be even more productive, without
+          overworking them. In this session I'll show you how to get the
           best results from the talent you already have on staff.`,
         voters: ['johnpapa', 'bradgreen', 'igorminar', 'martinfowler']
       },
@@ -80,7 +82,7 @@ export const EVENTS = [
   {
     id: 2,
     name: 'ng-nl',
-    date: '4/15/2037',
+    date: new Date('4/15/2037'),
     time: '9:00 am',
     price: 950.00,
     imageUrl: '/assets/images/ng-nl.png',
@@ -141,7 +143,7 @@ export const EVENTS = [
   {
     id: 3,
     name: 'ng-conf 2037',
-    date: '5/4/2037',
+    date: new Date('5/4/2037'),
     time: '9:00 am',
     price: 759.00,
     imageUrl: '/assets/images/ng-conf.png',
@@ -223,7 +225,7 @@ export const EVENTS = [
   {
     id: 4,
     name: 'UN Angular Summit',
-    date: '6/10/2037',
+    date: new Date('6/10/2037'),
     time: '8:00 am',
     price: 800.00,
     imageUrl: '/assets/images/basic-shield.png',
@@ -272,7 +274,7 @@ export const EVENTS = [
   {
     id: 5,
     name: 'ng-vegas',
-    date: '2/10/2037',
+    date: new Date('2/10/2037'),
     time: '9:00 am',
     price: 400.00,
     imageUrl: '/assets/images/ng-vegas.png',
