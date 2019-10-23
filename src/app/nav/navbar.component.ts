@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from '../user/auth.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavbarComponent {
+  constructor(private auth: AuthService) {
+  }
 
 }
