@@ -6,7 +6,7 @@ import {EventService} from './shared';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'create-event-details',
+  selector: 'create-event',
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.css']
 })
@@ -20,10 +20,11 @@ export class CreateEventComponent  {
 
 
   saveEvent(formValues) {
-    console.log(formValues);
+    // console.log(formValues);
+
     this.eventService.saveEvent(formValues);
-    this.isDirty = false;
     this.router.navigate(['/events']);
+    //this.isDirty = false;
   }
 
   cancel() {
