@@ -46,7 +46,7 @@ export class SessionListComponent implements OnChanges{
 
 export class AlphabeticPipe implements PipeTransform {
   transform(visibleSessions: ISession[]) {
-    visibleSessions.sort((a: any, b: any) => {
+    visibleSessions.sort((a: ISession, b: ISession) => {
       if (a.name < b.name) {
         return -1;
       } else if (a.name > b.name) {
