@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-7">
       <button class="btn btn-default" [class.active]="sortBy==='name'" (click)="sortBy='name'">By name</button>
-
+      <button class="btn btn-default" [class.active]="sortBy==='votes'" (click)="sortBy='votes'">By votes</button>
       <button class="btn btn-default" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
       <button class="btn btn-default" [class.active]="filterBy==='beginner'" (click)="filterBy='beginner'">Beginner</button>
       <button class="btn btn-default" [class.active]="filterBy==='intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
