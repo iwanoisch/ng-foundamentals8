@@ -8,7 +8,7 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   EventRouteActivator,
-  EventsListResolver, CreateSessionComponent, SessionListComponent, AlphabeticPipe,
+  EventsListResolver, CreateSessionComponent, SessionListComponent, AlphabeticPipe, UpvoteComponent, VoterService,
 } from './events/index';
 import {NavbarComponent} from './nav/navbar.component';
 import {Toastr, TOASTR_TOKEN, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective} from './common/index';
@@ -37,6 +37,7 @@ let jQuery = window['$'];
     AlphabeticPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,7 @@ let jQuery = window['$'];
     { provide: JQ_TOKEN, useValue: jQuery },
       EventsListResolver,
       AuthService,
+      VoterService,
       {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
     ],
   bootstrap: [EventsAppComponent]
