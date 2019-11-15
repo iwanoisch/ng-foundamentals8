@@ -1,6 +1,6 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from './shared/event.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {IEvent} from './shared';
 
 @Component({
@@ -14,12 +14,19 @@ import {IEvent} from './shared';
 export class EventsListComponent implements OnInit {
   events: IEvent[];
 
+  public hrefDownloadPdf: string;
+
   constructor(private eventService: EventService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit() {
     // this.eventService.getEvents().subscribe(events => this.events = events);
+    // Download Button example
     this.events = this.route.snapshot.data['events'];
+
+    this.hrefDownloadPdf = 'http://localhost:4200/assets/pdf/vendoauto.pdf';
+    // http://localhost:4200/assets/pdf/vendoauto.pdf
     // this.events = EVENTS;
   }
 
