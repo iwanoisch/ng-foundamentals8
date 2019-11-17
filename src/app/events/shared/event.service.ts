@@ -2,25 +2,35 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {EVENTS} from '../event';
 import {IEvent, ISession} from './event.model';
+import {HttpClient} from '@angular/common/http';
+import {error} from 'util';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root', })
 export class EventService {
 
-  constructor() {}
-
-  getEvents(): Observable<IEvent[]> {
-    const subject = new Subject<IEvent[]>();
-    setTimeout(() => {subject.next(EVENTS); subject.complete(); },
-      100);
-    return subject;
-  }
+  constructor(private http: HttpClient) {}
 
   // getEvents(): Observable<any[]> {
   //   return of(EVENTS);
   // }
+  getEvents(): Observable<IEvent[]> {
+    return this.http.get<IEvent[]>('/api/events')
+      .pipe(
+        catchError(this.handleError<IEvent[]>('getEvents', []))
+      )
+    // const subject = new Subject<IEvent[]>();
+    // setTimeout(() => {subject.next(EVENTS); subject.complete(); },
+    //   100);
+    // return subject;
+  }
 
-  getEvent(id: number): IEvent {
-    return EVENTS.find(event => event.id === id);
+  getEvent(id: number): Observable<IEvent> {
+    return  this.http.get<IEvent>('/api/events/' + id)
+      .pipe(
+        catchError(this.handleError<IEvent>('getEvents'))
+      )
+    //return EVENTS.find(event => event.id === id);
   }
 
   saveEvent(event){
@@ -54,5 +64,18 @@ export class EventService {
     }, 100);
     return emitter;
   }
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      return of (result as T);
+    }
+  }
+
+  downloadPdfFile(url: string): Observable<any> {
+    const httpOptions = {
+      responseType: 'blob' as 'json',
+    };
+    return this.http.get(url, httpOptions);
+  }
+
 }
 

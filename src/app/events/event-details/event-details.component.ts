@@ -23,8 +23,25 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit() {
     // Inserisco questo altrimeti quando clicco sullo search nella modale vengo reindirizzato solo al primo click
-    this.route.params.forEach((params: Params) => {
-      this.event = this.eventService.getEvent(+params['id']);
+    // this.route.params.forEach((params: Params) => {
+    //   // this.event = this.eventService.getEvent(+params['id']);
+    //   this.eventService.getEvent(+params['id']).subscribe(
+    //     (event: IEvent) => {
+    //       this.event = event;
+    //       this.addMode = false
+    //     }
+    //   );
+    //   this.addMode = false
+    // });
+
+    // this.route.params.forEach((params: Params) => {
+    //   this.event = this.route.snapshot.data['event'];
+    //   this.addMode = false
+    // });
+
+    this.route.params.forEach((data) => {
+      this.event = this.route.snapshot.data['event'];
+      console.log('dada',this.event);
       this.addMode = false
     });
 

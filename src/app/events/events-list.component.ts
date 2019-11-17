@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EventService} from './shared/event.service';
 import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {IEvent} from './shared';
+import { saveAs } from 'file-saver';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,6 +14,7 @@ import {IEvent} from './shared';
 
 export class EventsListComponent implements OnInit {
   events: IEvent[];
+  blob: Blob;
 
   public hrefDownloadPdf: string;
 
@@ -30,4 +32,14 @@ export class EventsListComponent implements OnInit {
     // this.events = EVENTS;
   }
 
+  downloadPdf(url:string)
+  {
+    this.eventService.downloadPdfFile(url).subscribe(
+      data => {
+        this.blob = new Blob([data], {type: 'application/pdf'});
+        saveAs(this.blob, 'vendoauto.pdf')
+      }
+    )
+    //this.blob = new Blob ([data], {})
+  }
 }

@@ -1,5 +1,6 @@
 <div><h1>Upcoming Angular Events</h1>
   <a class="btn btn-primary" [href]="hrefDownloadPdf" download="Resume">Download</a>
+  <a class="btn btn-primary" (click)="downloadPdf(hrefDownloadPdf)" download="Resume">DownloadAPi</a>
   <hr>
   <div class="row">
     <div *ngFor="let event of events"  class="col-md-5">
