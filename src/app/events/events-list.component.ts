@@ -37,6 +37,10 @@ export class EventsListComponent implements OnInit {
     this.eventService.downloadPdfFile(url).subscribe(
       data => {
         this.blob = new Blob([data], {type: 'application/pdf'});
+
+        /*
+        npm install file-saver --save
+        npm install @types/file-saver --save*/
         saveAs(this.blob, 'vendoauto.pdf')
       }
     )
